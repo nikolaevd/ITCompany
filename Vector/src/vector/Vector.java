@@ -29,6 +29,15 @@ public class Vector {
     public double getLength(){
         return Math.sqrt((x*x)+(y*y));
     }
+    
+    public void multiplication(double num){
+        x *= num;
+        y *= num;
+    }
+    
+    public Vector addition(Vector v){
+        return new Vector((x + v.getX()), (y + v.getY()));
+    }
 
     public static void main(String[] args) {
 
