@@ -1,9 +1,9 @@
 
-package person;
+package person.comparable;
 
 import java.util.TreeSet;
 
-public class Person implements Comparable<Person>{
+class Person implements Comparable<Person>{
    
     private final String lastName;
     private final String firstName;
@@ -17,9 +17,9 @@ public class Person implements Comparable<Person>{
 
     @Override
     public int compareTo(Person p) {
-        // для измения упорядочивания необходимо поменять логические блоки метода местами
-        // например: чтобы сортировать по отчеству, затем по фамилии, затем по имени
-        // просто поставить блок сортировки по отчеству на 1-е место, следом сортировка
+        // для измения порядка сортировки поменять местами логические блоки метода
+        // например: для по отчеству, затем по фамилии, затем по имени
+        // поставить блок сортировки по отчеству на 1-е место, следом сортировка
         // по фамилии, затем по имени
         
         // упорядочивание по имени
