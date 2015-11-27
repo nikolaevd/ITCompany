@@ -1,7 +1,5 @@
 
-package person.comparable;
-
-import java.util.TreeSet;
+package mycomparator;
 
 class Person implements Comparable<Person>{
    
@@ -10,20 +8,22 @@ class Person implements Comparable<Person>{
     private final String patronymic;
     
     public Person(String lastName, String firstName, String patronymic){
-        this.firstName = firstName;
         this.lastName = lastName;
+        this.firstName = firstName;
         this.patronymic = patronymic;
     }
 
     @Override
-    public int compareTo(Person p) {
+    public int compareTo(Person p) {    
         // для измения порядка сортировки поменять местами логические блоки метода
         // например: для по отчеству, затем по фамилии, затем по имени
         // поставить блок сортировки по отчеству на 1-е место, следом сортировка
         // по фамилии, затем по имени
         
+        int result = 0;
+        
         // упорядочивание по имени
-        int result = this.firstName.compareTo(p.firstName);
+        result = this.firstName.compareTo(p.firstName);
         if(result != 0){
             return result;
         }
@@ -40,20 +40,19 @@ class Person implements Comparable<Person>{
             return result;
         }
         
-        return 0;
+        return result;
     }
     
-    public static void main(String[] args) {
-        TreeSet<Person> tree = new TreeSet<>();
-        tree.add(new Person("Лавров", "Сергей", "Викторович"));
-        tree.add(new Person("Анохин", "Сергей", "Валерьевич"));
-        tree.add(new Person("Кривенко", "Максим", "Леонидович"));
-        tree.add(new Person("Тихонов", "Алексей", "Дмитриевич"));
-        tree.add(new Person("Прокопенко", "Владимир", "Алексеевич"));
-        
-        for(Person p : tree){
-            System.out.println(p.lastName + " " + p.firstName + " " + p.patronymic);
-        }
+    public String getLastName(){
+        return this.lastName;
+    }
+    
+    public String getFirstName(){
+        return this.firstName;
+    }
+    
+    public String getPatronymic(){
+        return this.patronymic;
     }
     
 }
