@@ -15,23 +15,32 @@ public class MyStringIterator implements ListIterator<String>{
 
     @Override
     public boolean hasNext() {
-        if(nextIndex < str.length()) return true;
+        if(nextIndex < str.length()) {
+            return true;
+        }
         return false;
     }
 
     @Override
     public String next() {
-        return str.substring(nextIndex, nextIndex+1);
+        previousIndex = nextIndex;
+        nextIndex++;
+        return str.substring(previousIndex, nextIndex);
     }
 
     @Override
     public boolean hasPrevious() {
-        if(previousIndex < str.length() && previousIndex >= 0) return true;
+        if(previousIndex >= 0 && previousIndex < str.length()) {
+            
+            return true;
+        }
         return false;
     }
 
     @Override
     public String previous() {
+        nextIndex = previousIndex;
+        previousIndex--;
         return str.substring(previousIndex, nextIndex);
     }
 
@@ -47,18 +56,20 @@ public class MyStringIterator implements ListIterator<String>{
 
     @Override
     public void remove() {
+        // удалить последний возрвращенный элемент
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void set(String e) {
+        // установить элемент на позицию последнего возращенного элемента новый символ
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void add(String e) {
+        // установить элемент на позцицию непосредственно перед последним возвращенным символов
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    
+ 
 }
