@@ -3,11 +3,7 @@ package mylistiterator;
 
 import java.util.ListIterator;
 
-public class MyListIterator implements ListIterator<Object>{
-
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+public class MyArrayIterator implements ListIterator<Object>{
 
     @Override
     public boolean hasNext() {
