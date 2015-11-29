@@ -8,6 +8,7 @@ public class MyStringIterator implements ListIterator<String>{
     private String str;
     private int previousIndex = -1;
     private int nextIndex = 0;
+    private int lastReturned = 0;
     
     public  MyStringIterator(String str){
         this.str = str;
@@ -23,6 +24,7 @@ public class MyStringIterator implements ListIterator<String>{
 
     @Override
     public String next() {
+        lastReturned = nextIndex;
         previousIndex = nextIndex;
         nextIndex++;
         return str.substring(previousIndex, nextIndex);
@@ -39,6 +41,7 @@ public class MyStringIterator implements ListIterator<String>{
 
     @Override
     public String previous() {
+        lastReturned = previousIndex;
         nextIndex = previousIndex;
         previousIndex--;
         return str.substring(previousIndex, nextIndex);
