@@ -1,32 +1,19 @@
 
 package itcompany;
 
-import java.util.ArrayList;
-
-public class Employee {
+public class Employee extends Man{
     
-    private String name;
-    private Departament departament;
-    private ArrayList<Project> projectList = new ArrayList<>();
+    Department department;
     
-    public Employee(String name, Departament departament){
-        this.name = name;
-        this.departament = departament;
+    public Employee(String name){
+        super(name);
     }
     
-    public void setProject(Project project){
-        projectList.add(project);
+    public void setDepartment(Department departmnet){
+        this.department = departmnet;
     }
     
-    public String getName(){
-        return name;
-    }
-    
-    public Departament getDepartament(){
-        return departament;
-    }
-    
-    public ArrayList<Project> getProjectList(){
-        return projectList;
+    public Department getDepartment(){
+        return department;
     }
 }

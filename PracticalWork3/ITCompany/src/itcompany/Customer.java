@@ -1,16 +1,10 @@
 
 package itcompany;
 
-public class Customer {
-    
-    private String name;
+public class Customer extends Man {
     
     public Customer(String name){
-        this.name = name;
-    }
-    
-    public String getName(){
-        return name;
+        super(name);
     }
     
 }
