@@ -3,11 +3,13 @@ package itcompany;
 
 public class Project {
     
+    private String name;
     private Manager manager;
     private Customer customer;
     private boolean isDone;
     
-    public Project(Manager manager, Customer customer){
+    public Project(String name, Manager manager, Customer customer){
+        this.name = name;
         this.manager = manager;
         this.customer = customer;
     }
@@ -18,6 +20,10 @@ public class Project {
     
     public boolean getIsDone(){
         return isDone;
+    }
+    
+    public String getProjectName(){
+        return name;
     }
     
 }
