@@ -1,53 +1,70 @@
 
 package mylistiterator;
 
+import java.util.ArrayList;
 import java.util.ListIterator;
 
 public class MyArrayIterator implements ListIterator<Object>{
+    
+    private final ArrayList array;
+    private int previousIndex = -1;
+    private int nextIndex = 0;
+    private int lastReturned = 0;
+    
+    public MyArrayIterator(ArrayList array){
+        this.array = array;
+    }
 
     @Override
     public boolean hasNext() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return nextIndex < array.size();
     }
 
     @Override
     public Object next() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        lastReturned = nextIndex;
+        previousIndex = nextIndex;
+        nextIndex++;
+        return array.get(lastReturned);
     }
 
     @Override
     public boolean hasPrevious() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return previousIndex >= 0 && previousIndex < array.size();
     }
 
     @Override
     public Object previous() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        lastReturned = previousIndex;
+        nextIndex = previousIndex;
+        previousIndex--;
+        return array.get(lastReturned);
     }
 
     @Override
     public int nextIndex() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return nextIndex;
     }
 
     @Override
     public int previousIndex() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return previousIndex;
     }
 
     @Override
     public void remove() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        array.remove(lastReturned);
     }
 
     @Override
     public void set(Object e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        array.add(lastReturned, e);
     }
 
     @Override
     public void add(Object e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        array.add(e);
     }
     
 }
+    

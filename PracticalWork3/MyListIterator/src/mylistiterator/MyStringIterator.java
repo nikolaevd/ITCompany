@@ -3,23 +3,20 @@ package mylistiterator;
 
 import java.util.ListIterator;
 
-public class MyStringIterator implements ListIterator<String>{
+public class MyStringIterator implements ListIterator<String> {
     
-    private String str;
+    private final String str;
     private int previousIndex = -1;
     private int nextIndex = 0;
     private int lastReturned = 0;
     
-    public  MyStringIterator(String str){
+    public  MyStringIterator(String str) {
         this.str = str;
     }
 
     @Override
     public boolean hasNext() {
-        if(nextIndex < str.length()) {
-            return true;
-        }
-        return false;
+        return nextIndex < str.length();
     }
 
     @Override
@@ -27,16 +24,12 @@ public class MyStringIterator implements ListIterator<String>{
         lastReturned = nextIndex;
         previousIndex = nextIndex;
         nextIndex++;
-        return str.substring(previousIndex, nextIndex);
+        return str.substring(lastReturned, nextIndex);
     }
 
     @Override
     public boolean hasPrevious() {
-        if(previousIndex >= 0 && previousIndex < str.length()) {
-            
-            return true;
-        }
-        return false;
+        return previousIndex >= 0 && previousIndex < str.length();
     }
 
     @Override
@@ -59,20 +52,20 @@ public class MyStringIterator implements ListIterator<String>{
 
     @Override
     public void remove() {
-        // удалить последний возрвращенный элемент
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+        // метод является опциональным и не реализуется, т.к. тип String - Immutable
+        throw new UnsupportedOperationException("Not supported yet.");
+    }   
+    
     @Override
     public void set(String e) {
-        // установить элемент на позицию последнего возращенного элемента новый символ
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        // метод является опциональным и не реализуется, т.к. тип String - Immutable
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public void add(String e) {
-        // установить элемент на позцицию непосредственно перед последним возвращенным символов
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        // метод является опциональным и не реализуется, т.к. тип String - Immutable        
+        throw new UnsupportedOperationException("Not supported yet.");
     }
  
 }
