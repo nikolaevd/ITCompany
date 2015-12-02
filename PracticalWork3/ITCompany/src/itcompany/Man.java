@@ -20,7 +20,7 @@ public class Man {
     
     public void addProject(Project newProject){
         projects.add(newProject);
-        newProject.addMan(this);
+        newProject.addEmployee(this);
     }
     
     public Set getProjects(){

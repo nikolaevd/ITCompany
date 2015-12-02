@@ -7,16 +7,28 @@ import java.util.Set;
 public class Project {
     
     private final String name;
-    private final Set men;
+    private final String customer;
+    private Manager manager;
+    private final Set employees;
     private boolean isFinished;
     
-    public Project(String name){
+    public Project(String name, String customer, Manager manager){
         this.name = name;
-        men = new HashSet();
+        this.customer = customer;
+        this.manager = manager;
+        employees = new HashSet();
     }
     
     public String getName(){
         return name;
+    }
+    
+    public String getCustomer(){
+        return customer;
+    }
+    
+    public Manager getManager(){
+        return manager;
     }
     
     public void setProjectStatus(boolean finish){
@@ -27,17 +39,17 @@ public class Project {
         return isFinished;
     }
     
-    public void addMan(Man newMan){
-        men.add(newMan);
-        newMan.addProject(this);
+    public void addEmployee(Man newEmployee){
+        employees.add(newEmployee);
+        newEmployee.addProject(this);
     }
     
-    public Set getMen(){
-        return men;
+    public Set getEmployees(){
+        return employees;
     }
     
-    public void removeMan(Man man){
-        men.remove(man);
+    public void removeEmployee(Employee employee){
+        employees.remove(employee);
     }
     
 }
