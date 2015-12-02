@@ -26,7 +26,7 @@ public class Vector {
         this.y = y;
     }
 
-    // получить длину / евклидова норма (в чем разница?)
+    // получить евклидову норму
     public double getLength(){
         return Math.sqrt((x*x)+(y*y));
     }
