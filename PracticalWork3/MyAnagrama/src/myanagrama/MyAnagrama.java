@@ -2,20 +2,19 @@
 package myanagrama;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
 
 public class MyAnagrama {
+  
+    private final ArrayList<String> anagrams;
     
-    private ArrayList<String> anagrams = new ArrayList<>();
-     
+    public MyAnagrama(){
+        anagrams = new ArrayList<>();
+    }
+      
     public static void main(String[] args) {
-        MyAnagrama myAnagrama = new MyAnagrama();
-        myAnagrama.fillContent();
-        myAnagrama.groupContent(myAnagrama.anagrams);
+        MyAnagrama anagrama = new MyAnagrama();
+        anagrama.fillContent();
+        anagrama.printAnagramsByGroup();
     }
     
     public void fillContent(){
@@ -50,25 +49,27 @@ public class MyAnagrama {
 	return anagrama.isEmpty();
     }
     
-    public void groupContent(ArrayList<String> list){
-        ArrayList<String> newList = new ArrayList<>();
-        int i = 0;
+    public void printAnagramsByGroup(){
+        ArrayList<String> newList;
+        String word;
         
-        String word = list.get(i);
-        
-        for(String str : list){
-            if(isAnagrama(word, str)){
-                newList.add(str);
-                list.remove(str);
+        for(String s1 : anagrams){
+            newList = new ArrayList<>();
+            word = s1;
+            
+            for(String s2 : anagrams){
+                if(isAnagrama(word, s2)){
+                    newList.add(s2);
+                }
             }
-        }
-        
-        newList.add(word);
-        list.remove(word);
-        
-        System.out.println("Анаграммы к слову " + word + ":");
-        for(String s : newList){
-            System.out.println(s);
+            
+            if(newList.size() > 1){
+                System.out.println("Анаграммы к слову " + word + ":");
+                for(String s : newList){
+                    System.out.println(s);
+                }   
+            }
+            System.out.println("");
         }
     }
     
