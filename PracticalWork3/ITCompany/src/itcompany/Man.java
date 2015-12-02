@@ -6,8 +6,8 @@ import java.util.Set;
 
 public class Man {
     
-    private final String name;
-    private final Set projects;
+    private String name;
+    private Set projects;
     
     public Man(String name){
         this.name = name;

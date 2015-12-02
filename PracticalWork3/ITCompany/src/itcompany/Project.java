@@ -6,13 +6,13 @@ import java.util.Set;
 
 public class Project {
     
-    private final String name;
-    private final String customer;
+    private String name;
+    private Customer customer;
     private Manager manager;
-    private final Set employees;
+    private Set employees;
     private boolean isFinished;
     
-    public Project(String name, String customer, Manager manager){
+    public Project(String name, Customer customer, Manager manager){
         this.name = name;
         this.customer = customer;
         this.manager = manager;
@@ -23,7 +23,7 @@ public class Project {
         return name;
     }
     
-    public String getCustomer(){
+    public Customer getCustomer(){
         return customer;
     }
     

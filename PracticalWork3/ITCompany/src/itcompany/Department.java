@@ -6,8 +6,8 @@ import java.util.Set;
 
 public class Department {
     
-    private final String name;
-    private final Set employees;
+    private String name;
+    private Set employees;
     
     public Department(String name){
         this.name = name;
