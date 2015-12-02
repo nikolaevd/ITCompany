@@ -11,6 +11,7 @@ public class Employee extends Man{
     
     public void setDepartment(Department departmnet){
         this.department = departmnet;
+        departmnet.addEmployee(this);
     }
     
     public Department getDepartment(){

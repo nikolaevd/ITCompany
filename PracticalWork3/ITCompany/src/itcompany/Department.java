@@ -20,6 +20,7 @@ public class Department {
     
     public void addEmployee(Employee newEmployee){
         employees.add(newEmployee);
+        newEmployee.setDepartment(this);
     }
 
     public Set getEmployees() {

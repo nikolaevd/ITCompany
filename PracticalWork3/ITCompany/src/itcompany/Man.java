@@ -18,8 +18,9 @@ public class Man {
         return name;
     }
     
-    public void addProjects(Project newProject){
+    public void addProject(Project newProject){
         projects.add(newProject);
+        newProject.addMan(this);
     }
     
     public Set getProjects(){
